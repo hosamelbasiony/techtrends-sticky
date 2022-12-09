@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: techtrends
+  namespace: techtrends
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:    
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: techtrends
+            port:
+              number: 5000
+# dev.localhost
+# 
